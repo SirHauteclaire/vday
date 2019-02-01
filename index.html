@@ -41,6 +41,21 @@
       function fillName() {
         document.getElementById('theirname').value = "https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value;
       }
+      function shortenUrl() {
+        var fData = new FormData();
+        var xhr = new XMLHttpRequest();
+        console.log("Sending name " + document.getElementById('inputname').value + " to link shortener...");
+        fData.append("url","https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value);
+
+        console.log(xhr.status);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && this.status == 200) {
+            document.getElementById('theirname').value = xhr.responseText;
+          }
+        };
+        xhr.open("POST","http://htclr.me/create");
+        xhr.send(fData);
+      }
     </script>
     <style>
       body {
@@ -60,14 +75,13 @@
               <input class="input" id="inputname" type="text" placeholder="What's their name?" onkeyup="getName(); fillName();" name="to" required>
             </p>
             <p class="control is-large">
-              <button class="button is-danger is-outlined" onClick="irasshai.classList.toggle('is-active')">
+              <a class="button is-danger is-outlined" onClick="shortenUrl();">
                 <i class="fa fa-heart"></i>
-              </button>
+              </a>
             </p>
-
           </form>
           <div class="control">
-            <input id="theirname" class="input" type="text" value="https://vday.hauteclaire.me/?to=" placeholder="Link to send to your valentine's" readonly>
+            <input id="theirname" class="input" type="text" value="" placeholder="..." readonly>
           </div>
         </div>
     </div>
