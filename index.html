@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70118366-14"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-70118366-14');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
@@ -10,8 +16,6 @@
     <script type="text/javascript" src="assets/modal-fx.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script type="text/javascript">
-      window.dataLayer = window.dataLayer || [];
-
       function getUrlVars() {
         var vars = {};
         var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -37,9 +41,6 @@
       function fillName() {
         document.getElementById('theirname').value = "https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value;
       }
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-70118366-14', {'page_title':'vday2k19','page_path':'?to=' + getUrlVars()['to']});
     </script>
     <style>
       body {
@@ -85,4 +86,20 @@
       </div>
     </section>
   </body>
+  <script type="text/javascript">
+    var _paq = window._paq || [];
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.vday.hauteclaire.me"]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://dosatsu.hauteclaire.me/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '4']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="https://dosatsu.hauteclaire.me/matomo.php?idsite=4&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 </html>
