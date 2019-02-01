@@ -14,26 +14,26 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="assets/modal-fx.min.css">
     <script type="text/javascript" src="assets/modal-fx.min.js"></script>
+    <script type="text/javascript" src="assets/jquery-3.3.1.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script type="text/javascript">
-      function getUrlVars() {
+      function gUV() {
         var vars = {};
         var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
           vars[key] = value;
         });
         return vars;
       }
-      function getUrlParam(parameter, defaultvalue){
+      function gUP(parameter, defaultvalue){
         var urlparameter = defaultvalue;
         if(window.location.href.indexOf(parameter) > -1){
-          urlparameter = getUrlVars()[parameter];
+          urlparameter = gUV()[parameter];
         }
         return urlparameter;
       }
       function getName() {
-        if(getUrlParam("to", "blank") != "blank") {
-          document.getElementById("name").innerHTML = "Hey, " + getUrlVars()['to'] + "...";
-          ga('set', 'dimension1', getUrlVars()['to']);
+        if(gUP("to", "blank") != "blank") {
+          document.getElementById("name").innerHTML = "Hey, " + gUV()['to'] + "...";
         } else {
           document.getElementById('name').innerHTML = "Hey " + document.getElementById('inputname').value + "...";
         }
@@ -67,7 +67,7 @@
 
           </form>
           <div class="control">
-            <input id="theirname" class="input" type="text" value="" placeholder="Link to send to your valentine's" readonly>
+            <input id="theirname" class="input" type="text" value="https://vday.hauteclaire.me/?to=" placeholder="Link to send to your valentine's" readonly>
           </div>
         </div>
     </div>
@@ -86,20 +86,4 @@
       </div>
     </section>
   </body>
-  <script type="text/javascript">
-    var _paq = window._paq || [];
-    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.vday.hauteclaire.me"]);
-    _paq.push(["disableCookies"]);
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="https://dosatsu.hauteclaire.me/";
-      _paq.push(['setTrackerUrl', u+'matomo.php']);
-      _paq.push(['setSiteId', '4']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <noscript><p><img src="https://dosatsu.hauteclaire.me/matomo.php?idsite=4&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 </html>
