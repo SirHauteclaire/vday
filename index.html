@@ -13,10 +13,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="assets/modal-fx.min.css">
+    <link rel="stylesheet" href="assets/bulma-tooltip.min.css">
     <script type="text/javascript" src="assets/modal-fx.min.js"></script>
     <script type="text/javascript" src="assets/jquery-3.3.1.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script type="text/javascript">
+      function cTC() {
+        var cText = document.getElementById("theirname");
+        cText.select();
+        document.execCommand("copy");
+      }
       function gUV() {
         var vars = {};
         var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -63,7 +69,7 @@
         font-family: 'Pacifico', cursive;
       }
     </style>
-    <title>Hey...</title>
+    <title>❤</title>
   </head>
   <body onload="getName()">
     <div id="irasshai" class=" modal modal-fx-fadeInScale">
@@ -81,7 +87,7 @@
             </p>
           </form>
           <div class="control">
-            <input id="theirname" class="input" type="text" value="" placeholder="..." readonly>
+            <input id="theirname" class="input tooltip" data-tooltip="Copy to clipboard" type="text" value="" placeholder="..." readonly onClick="cTC();">
           </div>
         </div>
     </div>
