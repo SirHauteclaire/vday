@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70118366-14"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133738054-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -20,9 +20,13 @@
     <script type="text/javascript">
       function cTC() {
         var cText = document.getElementById("theirname");
-        document.getElementById("theirname").classList.add("is-success")
-        cText.select();
-        document.execCommand("copy");
+        if(cText == "") {
+          document.getElementById("theirname").classlist.add("is-danger");
+        } else {
+          document.getElementById("theirname").classList.add("is-success")
+          cText.select();
+          document.execCommand("copy");
+        }
       }
       function gUV() {
         var vars = {};
@@ -45,14 +49,21 @@
           document.getElementById('name').innerHTML = "Hey " + document.getElementById('inputname').value + "...";
         }
       }
-      function fillName() {
-        document.getElementById('theirname').value = "https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value;
+      function getMsg() {
+        if(gUP("msg", "blank") != "blank") {
+          document.getElementById("yourmessage").innerHTML = atob(gUV()['msg']);
+        } else {
+          document.getElementById('yourmessage').innerHTML = "🌹😘💕";
+        }
+      }
+      function fillUrl() {
+        document.getElementById('theirname').value = "https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value + "&msg=" + btoa(document.getElementById('message').value);
       }
       function shortenUrl() {
         var fData = new FormData();
         var xhr = new XMLHttpRequest();
         console.log("Sending name " + document.getElementById('inputname').value + " to link shortener...");
-        fData.append("url","https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value);
+        fData.append("url","https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value + "&msg=" + btoa(document.getElementById('message').value));
 
         console.log(xhr.status);
         xhr.onreadystatechange = function() {
@@ -72,14 +83,15 @@
     </style>
     <title>❤</title>
   </head>
-  <body onload="getName()">
+  <body onload="getName(); getMsg();">
     <div id="irasshai" class=" modal modal-fx-fadeInScale">
       <div class="modal-background" style="background-color: #ffffff"></div>
         <div class="modal-content">
           <p>Send the given link to that special someone.</p>
           <form class="field is-grouped" method="get">
             <p class="control is-large is-expanded">
-              <input class="input" id="inputname" type="text" placeholder="What's their name?" onkeyup="getName(); fillName();" name="to" required />
+              <input class="input" id="inputname" type="text" placeholder="What's their name?" onkeyup="getName(); fillUrl();" name="to" required />
+              <input class="input" placeholder="Your special message (optional)" type="text" id="message" onkeyup="getMsg(); fillUrl();" name="msg"></input>
             </p>
             <p class="control is-large">
               <a class="button is-danger is-outlined" data-tooltip="Shorten this url" onClick="shortenUrl();">
@@ -87,6 +99,7 @@
               </a>
             </p>
           </form>
+          <hr />
           <div class="control">
             <input id="theirname" class="input tooltip" data-tooltip="Copy to clipboard" type="text" value="" placeholder="..." readonly onClick="cTC();">
           </div>
@@ -100,8 +113,10 @@
           <a class="subtitle has-text-white" style="font-size:112px" onClick="irasshai.classList.toggle('is-active')">
             Happy Valentine's Day
           </a>
-          <h2 id="message" class="subtitle has-text-white">
-            🌹😘💕
+          <br />
+          <br />
+          <br />
+          <h2 id="yourmessage" class="subtitle has-text-white">
           </h2>
         </div>
       </div>
