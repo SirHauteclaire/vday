@@ -80,6 +80,9 @@
         background: radial-gradient(#ff0000, #820000);
         font-family: 'Pacifico', cursive;
       }
+      a {
+        color: #ff9ede;
+      }
     </style>
     <title>❤</title>
   </head>
@@ -91,7 +94,7 @@
           <form class="field is-grouped" method="get">
             <p class="control is-large is-expanded">
               <input class="input" id="inputname" type="text" placeholder="What's their name?" onkeyup="getName(); fillUrl();" name="to" required />
-              <input class="input" placeholder="Your special message (optional)" type="text" id="message" onkeyup="getMsg(); fillUrl();" name="msg"></input>
+              <input class="input" placeholder="Your special message (optional; max 500 characters)" maxlength="500" type="text" id="message" onkeyup="getMsg(); fillUrl();" name="msg"></input>
             </p>
             <p class="control is-large">
               <a class="button is-danger is-outlined" data-tooltip="Shorten this url" onClick="shortenUrl();">
@@ -108,9 +111,9 @@
     <section class="hero is-bold is-fullheight">
       <div class="hero-body has-text-white">
         <div class="container has-text-centered">
-          <h1 class="title has-text-white" style="font-size:56px" id="name">
+          <h1 class="title has-text-white" style="font-size:5vw" id="name">
           </h1>
-          <a class="subtitle has-text-white" style="font-size:112px" onClick="irasshai.classList.toggle('is-active')">
+          <a class="subtitle has-text-white" id="hvday" style="font-size:7.5vw" onClick="irasshai.classList.toggle('is-active')">
             Happy Valentine's Day
           </a>
           <br />
