@@ -53,7 +53,7 @@
         if(gUP("msg", "blank") != "blank") {
           document.getElementById("yourmessage").innerHTML = atob(gUV()['msg']);
         } else {
-          document.getElementById('yourmessage').innerHTML = "🌹😘💕";
+          document.getElementById('yourmessage').innerHTML = " ";
         }
       }
       function fillUrl() {
@@ -111,14 +111,15 @@
     <section class="hero is-bold is-fullheight">
       <div class="hero-body has-text-white">
         <div class="container has-text-centered">
-          <h1 class="title has-text-white" style="font-size:5vw" id="name">
+          <h1 class="title has-text-white" style="font-size:5vmax" id="name">
           </h1>
-          <a class="subtitle has-text-white" id="hvday" style="font-size:7.5vw" onClick="irasshai.classList.toggle('is-active')">
+          <a class="subtitle has-text-white" id="hvday" style="font-size:8vmax" onClick="irasshai.classList.toggle('is-active')">
             Happy Valentine's Day
           </a>
           <br />
           <br />
           <br />
+          <h2 class="subtitle has-text-white" style="font-size:1.5vmax">───────────── 🌹😘💕 ─────────────</h2>
           <h2 id="yourmessage" class="subtitle has-text-white">
           </h2>
         </div>
