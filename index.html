@@ -44,7 +44,7 @@
       }
       function getName() {
         if(gUP("to", "blank") != "blank") {
-          document.getElementById("name").innerHTML = "Hey, " + gUV()['to'] + "...";
+          document.getElementById("name").innerHTML = "Hey, " + decodeURI(gUV()['to']) + "...";
         } else {
           document.getElementById('name').innerHTML = "Hey " + document.getElementById('inputname').value + "...";
         }
@@ -90,7 +90,7 @@
     <div id="irasshai" class=" modal modal-fx-fadeInScale">
       <div class="modal-background" style="background-color: #ffffff"></div>
         <div class="modal-content">
-          <p>Send the given link to that special someone.</p>
+          <p>Make your own Valentine's Day card for that special someone.</p>
           <form class="field is-grouped" method="get">
             <p class="control is-large is-expanded">
               <input class="input" id="inputname" type="text" placeholder="What's their name?" onkeyup="getName(); fillUrl();" name="to" required />
