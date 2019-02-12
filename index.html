@@ -1,3 +1,4 @@
+<!-- made with love, sweat, and tears. but mainly love. source: https://github.com/SirHauteclaire/vday-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,11 +43,20 @@
         }
         return urlparameter;
       }
+      function copyNotif() {
+        document.getElementById('copyNotif').innerHTML = "Send this shortened url to your Valentine's 😘";
+        document.getElementById('theirname').classList.add('is-tooltip-active');
+      }
+      function getAdj() {
+        var adjectives = ["sexy", "hot stuff", "beautiful", "lovely", "cutie", "hottie", "sweet thang", "babe", "irresistable", "fineapple", "pretty", "gorgeous", "good-looking", "eye candy", "dreamy"];
+        var n = Math.floor((Math.random() * adjectives.length));
+        return adjectives[n];
+      }
       function getName() {
         if(gUP("to", "blank") != "blank") {
           document.getElementById("name").innerHTML = "Hey, " + decodeURI(gUV()['to']) + "...";
         } else {
-          document.getElementById('name').innerHTML = "Hey " + document.getElementById('inputname').value + "...";
+          document.getElementById('name').innerHTML = "Hey, " + getAdj() + "...";
         }
       }
       function getMsg() {
@@ -57,13 +67,13 @@
         }
       }
       function fillUrl() {
-        document.getElementById('theirname').value = "https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value + "&msg=" + btoa(document.getElementById('message').value);
+        document.getElementById('theirname').value = "https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value);
       }
       function shortenUrl() {
         var fData = new FormData();
         var xhr = new XMLHttpRequest();
         console.log("Sending name " + document.getElementById('inputname').value + " to link shortener...");
-        fData.append("url","https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value + "&msg=" + btoa(document.getElementById('message').value));
+        fData.append("url","https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value));
 
         console.log(xhr.status);
         xhr.onreadystatechange = function() {
@@ -83,6 +93,9 @@
       a {
         color: #ff9ede;
       }
+      .modal-close {
+        background-color: #cccccc;
+      }
     </style>
     <title>❤</title>
   </head>
@@ -97,21 +110,24 @@
               <input class="input" placeholder="Your special message (optional; max 500 characters)" maxlength="500" type="text" id="message" onkeyup="getMsg(); fillUrl();" name="msg"></input>
             </p>
             <p class="control is-large">
-              <a class="button is-danger is-outlined" data-tooltip="Shorten this url" onClick="shortenUrl();">
-                <i class="fa fa-heart"></i>
+              <a class="button is-danger is-outlined" data-tooltip="Shorten this url" onClick="shortenUrl(); copyNotif();">
+                <i class="fas fa-paper-plane"></i>
               </a>
             </p>
           </form>
           <hr />
           <div class="control">
-            <input id="theirname" class="input tooltip" data-tooltip="Copy to clipboard" type="text" value="" placeholder="..." readonly onClick="cTC();">
+            <p id="copyNotif"></p>
+            <input id="theirname" class="input tooltip is-tooltip-top" data-tooltip="Copy to clipboard" type="text" value="" placeholder="..." readonly onClick="cTC();">
           </div>
         </div>
+        <button class="modal-close is-large" onClick="irasshai.classList.toggle('is-active')"></button>
     </div>
     <section class="hero is-bold is-fullheight">
       <div class="hero-body has-text-white">
         <div class="container has-text-centered">
           <h1 class="title has-text-white" style="font-size:4.25vmax" id="name">
+            <noscript>Hey, anti-JavaScript user...</noscript>
           </h1>
           <a class="subtitle has-text-white" id="hvday" style="font-size:7vmax" onClick="irasshai.classList.toggle('is-active')">
             Happy Valentine's Day
@@ -121,6 +137,7 @@
           <br />
           <h2 class="subtitle has-text-white" style="font-size:1.5vmax">───────────── 🌹😘💕 ─────────────</h2>
           <h2 id="yourmessage" class="subtitle has-text-white">
+            <noscript>There's probably a message here, but you have JavaScript disabled. Oh well, I guess you don't want to be loved...</noscript>
           </h2>
         </div>
       </div>
