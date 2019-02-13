@@ -67,13 +67,13 @@
         }
       }
       function fillUrl() {
-        document.getElementById('theirname').value = "https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value);
+        document.getElementById('theirname').value = "https://v.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value);
       }
       function shortenUrl() {
         var fData = new FormData();
         var xhr = new XMLHttpRequest();
         console.log("Sending name " + document.getElementById('inputname').value + " to link shortener...");
-        fData.append("url","https://vday.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value));
+        fData.append("url","https://v.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value));
 
         console.log(xhr.status);
         xhr.onreadystatechange = function() {
