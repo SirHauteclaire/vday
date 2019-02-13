@@ -96,6 +96,13 @@
       .modal-close {
         background-color: #cccccc;
       }
+      .nohl {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
     </style>
     <title>❤</title>
   </head>
@@ -123,24 +130,26 @@
         </div>
         <button class="modal-close is-large" onClick="irasshai.classList.toggle('is-active')"></button>
     </div>
-    <section class="hero is-bold is-fullheight">
-      <div class="hero-body has-text-white">
-        <div class="container has-text-centered">
-          <h1 class="title has-text-white" style="font-size:4.25vmax" id="name">
-            <noscript>Hey, anti-JavaScript user...</noscript>
-          </h1>
-          <a class="subtitle has-text-white" id="hvday" style="font-size:7vmax" onClick="irasshai.classList.toggle('is-active')">
-            Happy Valentine's Day
-          </a>
-          <br />
-          <br />
-          <br />
-          <h2 class="subtitle has-text-white" style="font-size:1.5vmax">───────────── 🌹😘💕 ─────────────</h2>
-          <h2 id="yourmessage" class="subtitle has-text-white">
-            <noscript>There's probably a message here, but you have JavaScript disabled. Oh well, I guess you don't want to be loved...</noscript>
-          </h2>
+    <a onClick="irasshai.classList.toggle('is-active')" class="nohl">
+      <section class="hero is-bold is-fullheight">
+        <div class="hero-body has-text-white">
+          <div class="container has-text-centered">
+            <h1 class="title has-text-white" style="font-size:4.25vmax" id="name">
+              <noscript>Hey, anti-JavaScript user...</noscript>
+            </h1>
+            <span class="subtitle has-text-white" id="hvday" style="font-size:7vmax" onClick="irasshai.classList.toggle('is-active')">
+              Happy Valentine's Day
+            </span>
+            <br />
+            <br />
+            <br />
+            <h2 class="subtitle has-text-white" style="font-size:1.5vmax">───────────── 🌹😘💕 ─────────────</h2>
+            <h2 id="yourmessage" class="subtitle has-text-white">
+              <noscript>There's probably a message here, but you have JavaScript disabled. Oh well, I guess you don't want to be loved...</noscript>
+            </h2>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </a>
   </body>
 </html>
