@@ -63,13 +63,30 @@
         if(gUP("msg", "blank") != "blank") {
           document.getElementById("yourmessage").innerHTML = atob(gUV()['msg']);
         } else {
-          document.getElementById('yourmessage').innerHTML = " ";
+          document.getElementById('yourmessage').innerHTML = "(Tap/click me to customize and send your very own valentine's day card. Or, if you're here for some lovin', I love you.)";
         }
       }
       function fillUrl() {
         document.getElementById('theirname').value = "https://v.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value);
       }
       function shortenUrl() {
+        var chisaiurl = "https://v.hauteclaire.me/?to=" + document.getElementById('inputname').value.replace(" ","%20") + "&msg=" + btoa(document.getElementById('message').value);
+        var xhr = new XMLHttpRequest();
+        var chisaidata = new FormData;
+        chisaidata.append("longUrl", chisaiurl);
+        chisaidata.append("tags", "valentinesday");
+        chisaidata.append("findIfExists", true);
+        xhr.open("POST", "https://htclr.me/rest/v1/short-urls");
+        xhr.setRequestHeader("X-Api-Key", "ba82dfcf-46c8-4907-85f6-147bc7f792f5");
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && this.status == 200) {
+            var respData = JSON.parse(xhr.responseText);
+            document.getElementById('theirname').value = respData.shortUrl;
+          }
+        };
+        xhr.send(chisaidata);
+
+        /*
         var fData = new FormData();
         var xhr = new XMLHttpRequest();
         console.log("Sending name " + document.getElementById('inputname').value + " to link shortener...");
@@ -83,6 +100,7 @@
         };
         xhr.open("POST","https://l.hauteclaire.me/create");
         xhr.send(fData);
+        */
       }
     </script>
     <style>
