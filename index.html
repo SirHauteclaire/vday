@@ -61,7 +61,7 @@
       }
       function getMsg() {
         if(gUP("msg", "blank") != "blank") {
-          var message = gUV()['msg'].replace("%3D", "=")
+          var message = gUV()['msg'].replace(/%3D/g, "=")
           console.log(message)
           document.getElementById("yourmessage").innerHTML = atob(message);
         } else {
