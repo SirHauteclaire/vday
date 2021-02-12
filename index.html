@@ -61,7 +61,8 @@
       }
       function getMsg() {
         if(gUP("msg", "blank") != "blank") {
-          document.getElementById("yourmessage").innerHTML = atob(gUV()['msg']);
+          console.log(atob(gUV()['msg'].replace("%3D", "=")))
+          document.getElementById("yourmessage").innerHTML = atob(gUV()['msg'].replace("%3D", "="));
         } else {
           document.getElementById('yourmessage').innerHTML = "(Tap/click me to customize and send your very own valentine's day card. Or, if you're here for some lovin', I love you.)";
         }
@@ -77,7 +78,7 @@
         chisaidata.append("tags", "valentinesday");
         chisaidata.append("findIfExists", true);
         xhr.open("POST", "https://htclr.me/rest/v1/short-urls");
-        xhr.setRequestHeader("X-Api-Key", "ba82dfcf-46c8-4907-85f6-147bc7f792f5");
+        xhr.setRequestHeader("X-Api-Key", "c159c3b1-5a39-4cce-95a4-c2a4976cf422");
         xhr.onreadystatechange = function() {
           if (xhr.readyState == 4 && this.status == 200) {
             var respData = JSON.parse(xhr.responseText);
