@@ -61,8 +61,9 @@
       }
       function getMsg() {
         if(gUP("msg", "blank") != "blank") {
-          console.log(atob(gUV()['msg'].replace("%3D", "=")))
-          document.getElementById("yourmessage").innerHTML = atob(gUV()['msg'].replace("%3D", "="));
+          var message = gUV()['msg'].replace("%3D", "=")
+          console.log(message)
+          document.getElementById("yourmessage").innerHTML = atob(message);
         } else {
           document.getElementById('yourmessage').innerHTML = "(Tap/click me to customize and send your very own valentine's day card. Or, if you're here for some lovin', I love you.)";
         }
