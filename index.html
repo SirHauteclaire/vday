@@ -134,7 +134,7 @@
           <form class="field is-grouped" method="get">
             <p class="control is-large is-expanded">
               <input class="input" id="inputname" type="text" placeholder="What's their name?" onkeyup="getName(); fillUrl();" name="to" required />
-              <input class="input" placeholder="Your special message (optional; max 500 characters)" maxlength="500" type="text" id="message" onkeyup="getMsg(); fillUrl();" name="msg"></input>
+              <input class="input" placeholder="Your special message (optional; emojis not allowed)" maxlength="500" type="text" id="message" onkeyup="getMsg(); fillUrl();" name="msg"></input>
             </p>
             <p class="control is-large">
               <a class="button is-danger is-outlined" data-tooltip="Shorten this url" onClick="shortenUrl(); copyNotif();">
